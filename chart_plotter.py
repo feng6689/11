@@ -6,6 +6,9 @@ from matplotlib.animation import FuncAnimation
 import time
 from queue import Queue, Empty
 
+plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'SimSun', 'KaiTi', 'Arial Unicode MS']
+plt.rcParams['axes.unicode_minus'] = False
+
 class ChartPlotter:
     def __init__(self):
         self.queue = Queue(maxsize=10)
