@@ -10,16 +10,16 @@ class ColorTracker:
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
         
-        self.lower_red1 = np.array([0, 120, 70])
-        self.upper_red1 = np.array([10, 255, 255])
-        self.lower_red2 = np.array([170, 120, 70])
+        self.lower_red1 = np.array([0, 60, 50])
+        self.upper_red1 = np.array([15, 255, 255])
+        self.lower_red2 = np.array([165, 60, 50])
         self.upper_red2 = np.array([180, 255, 255])
         
-        self.lower_blue = np.array([100, 100, 100])
-        self.upper_blue = np.array([130, 255, 255])
+        self.lower_blue = np.array([85, 40, 50])
+        self.upper_blue = np.array([140, 255, 255])
         
-        self.lower_yellow = np.array([20, 100, 100])
-        self.upper_yellow = np.array([40, 255, 255])
+        self.lower_yellow = np.array([10, 40, 50])
+        self.upper_yellow = np.array([50, 255, 255])
         
         self.colors = {
             'red': ((0, 0, 255), (self.lower_red1, self.upper_red1), (self.lower_red2, self.upper_red2)),
@@ -55,7 +55,7 @@ class ColorTracker:
             
             for contour in contours:
                 area = cv2.contourArea(contour)
-                if area > 500:
+                if area > 1500:
                     x, y, w, h = cv2.boundingRect(contour)
                     cv2.rectangle(frame, (x, y), (x + w, y + h), bgr_color, 2)
                     self.counts[color_name] += 1
